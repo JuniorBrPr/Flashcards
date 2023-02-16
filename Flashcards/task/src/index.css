@@ -2,12 +2,14 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: peachpuff;
+    background-color: antiquewhite;
     background-image: url("world.png");
     background-size: contain;
+    background-position-y: 50px;
 }
 
 main {
@@ -20,10 +22,12 @@ main {
     height: 90vh;
 }
 
+.question {
+    background-color: peachpuff;
+}
+
 .title {
     width: 90%;
-    text-align: center;
-    background-color: antiquewhite;
     padding: 2%;
     border-radius: 15px;
 }
@@ -34,14 +38,36 @@ main {
     grid-gap: 20px;
 }
 
-.flashcard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 20vh;
-    height: 20vh;
-    background-color: antiquewhite;
+.flashcard,
+.question,
+.answer {
+    width: 200px;
+    height: 200px;
     border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.flashcard {
+    background-color: antiquewhite;
+    border: 3px solid darkolivegreen;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    transform-style: preserve-3d;
+}
+
+.question,
+.answer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+}
+
+.answer {
+    transform: rotateY(180deg);
+    background-color: burlywood;
+}
+
+.flashcard:hover {
+    transform: scale(1.1) rotateY(180deg);
+    transition: ease-in 1s;
 }
